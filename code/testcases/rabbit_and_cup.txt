@@ -1,0 +1,171 @@
+
+PerspectiveCamera {
+    center 1.8 0 4
+    direction -1 -0.3 -1
+    up 0 1 0
+    angle 60
+    width 1024
+    height 1024
+    maxNearbyPhoton 10000
+    maxNearbyDist_square 0.1
+    sppm_iterate 20
+}
+
+Background {
+    color 0 0 0 
+}
+
+Materials {
+    numMaterials 5
+    LightMaterial
+    {
+        lightColor 1 1 1
+    }
+    Material { 
+        diffuseColor 0 1 0 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 0
+        specularRate 0
+        refractRate 1
+        refractIndex 1.2
+    }
+    Material 
+    { 
+        diffuseColor 1 1 1 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 0
+        specularRate 1
+        refractRate 0
+        refractIndex 1
+    }
+    Material 
+    { 
+        diffuseColor 0 1 1 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 0.2
+        specularRate 0
+        refractRate 1
+        refractIndex 1
+    }
+    Material 
+    { 
+        diffuseColor 1 1 1 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 0.5
+        specularRate 0.5
+        refractRate 0
+        refractIndex 1
+        texture texture/WoodFlooring044/WoodFlooring044_COL_2K.tga
+        normal_texture texture/WoodFlooring044/WoodFlooring044_NRM_2K.tga
+    }
+    
+}
+
+Group {
+    numObjects 5
+    MaterialIndex 4
+    Square
+    {
+        minPoint -5 -3 0
+        maxPoint 10 5 0
+    }
+    Transform
+    {
+        XRotate -90
+        Translate 0 -3 -2
+        Square
+        {
+            minPoint -5 -3 0
+            maxPoint 5 3 0
+        }
+    }
+    Group
+    {
+        numObjects 3
+        Plane {
+            normal 0 -1 0
+            offset -5
+        }
+        
+        Plane {
+            normal -1 0 0
+            offset -10
+        }
+        MaterialIndex 2
+        Plane {
+            normal 1 0 0
+            offset -3
+        }
+    }
+    MaterialIndex 1
+    Transform {
+        Scale 0.47 0.47 0.47
+        Translate -3.5 -1.85 4
+        RevSurface {
+            profile BsplineCurve {
+                controls
+                    [ 0.000000 -0.459543 0.0 ]
+                    [ 0.000000 -0.459544 0.0 ]
+                    [ 0.000000 -0.459545 0.0 ]
+                    [ -0.351882 -0.426747 0.0 ]
+                    [ -0.848656 -0.278898 0.0 ]
+                    [ -1.112097 0.084005 0.0 ]
+                    [ -1.164785 1.105511 0.0 ]
+                    [ -0.991667 2.328629 0.0 ]
+                    [ -1.029301 2.503360 0.0 ]
+                    [ -1.088800 2.345600 0.0 ]
+                    [ -1.278000 1.162800 0.0 ]
+                    [ -1.214800 0.055200 0.0 ]
+                    [ -0.915600 -0.381200 0.0 ]
+                    [ -0.380400 -0.622000 0.0 ]
+                    [ -0.144000 -0.968400 0.0 ]
+                    [ -0.096800 -1.480000 0.0 ]
+                    [ -0.128400 -2.112400 0.0 ]
+                    [ -0.317200 -2.202800 0.0 ]
+                    [ -0.994400 -2.262800 0.0 ]
+                    [ -1.214800 -2.323200 0.0 ]
+                    [ -1.199200 -2.398400 0.0 ]
+                    [ -1.057600 -2.458800 0.0 ]
+                    [ -0.711200 -2.458800 0.0 ]
+                    [ 0.000000 -2.458800 0.0 ]
+                    [ 0.000000 -2.458801 0.0 ]
+                    [ 0.000000 -2.458802 0.0 ]
+
+            }
+        }
+    }
+    Transform {
+		Scale  5 5 5 
+		Translate  0.05 -0.47 0.2 	
+        TriangleMesh {
+            obj_file mesh/bunny_1k.obj
+        }
+    }
+}
+
+Lights {
+    numLights 2
+    MaterialIndex 0
+    SpotLight {
+        direction 0 0.1 -1
+        color 1 1 1
+        position 0 -1.5 6
+        radius 0.3
+        maxAngle 40
+        power 50
+        photonAmount 5000000
+    }
+    SpotLight {
+        direction 0 -1 0
+        color 1 1 1
+        position -2 3 1
+        radius 1
+        maxAngle 120
+        power 50
+        photonAmount 5000000
+    }
+}

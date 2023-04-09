@@ -1,0 +1,88 @@
+
+PerspectiveCamera {
+    center 0 0 10
+    direction 0 0 -1
+    up 0 1 0
+    angle 30
+    width 500
+    height 500
+    maxNearbyPhoton 1000
+    maxNearbyDist_square 0.1
+    sppm_iterate 10
+}
+
+Background {
+    color 0 0 0 
+}
+
+Materials {
+    numMaterials 5
+    Material { 
+        diffuseColor 0 1 0 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 0
+        specularRate 0
+        refractRate 0.99
+        refractIndex 1.2
+    }
+    Material 
+    { 
+        diffuseColor 1 1 1 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 1
+        specularRate 0
+        refractRate 0
+        refractIndex 1
+        texture texture/CliffJagged004_COL_VAR1_1K.tga
+        normal_texture texture/CliffJagged004_NRM_1K.tga
+    }
+    Material 
+    { 
+        diffuseColor 1 0 0 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 0.5
+        specularRate 0
+        refractRate 0
+        refractIndex 1
+    }
+    Material 
+    { 
+        diffuseColor 0 0 1 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 0.5
+        specularRate 0
+        refractRate 0
+        refractIndex 1
+    }
+    LightMaterial
+    {
+        lightColor 1 1 1
+    }
+}
+
+Group {
+    numObjects 1
+    MaterialIndex 1
+    Square
+    {
+        minPoint -2 -2 0
+        maxPoint 2 2 0
+    }
+
+}
+
+Lights {
+    numLights 1
+    MaterialIndex 4
+    PointLight {
+        position 0 -2 2
+        color 1 1 1
+        radius 0.1
+        power 500
+        photonAmount 100000
+    }
+}

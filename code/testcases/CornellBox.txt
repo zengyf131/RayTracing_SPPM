@@ -1,0 +1,144 @@
+
+PerspectiveCamera {
+    center 0 0 10
+    direction 0 0 -1
+    up 0 1 0
+    angle 30
+    width 1000
+    height 1000
+    maxNearbyPhoton 1000
+    maxNearbyDist_square 0.1
+    sppm_iterate 10
+}
+
+Background {
+    color 0 0 0 
+}
+
+Materials {
+    numMaterials 5
+    Material { 
+        diffuseColor 1 1 1 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 0
+        specularRate 0.2
+        refractRate 0.8
+        refractIndex 1.8
+    }
+    Material 
+    { 
+        diffuseColor 1 1 1 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 0.5
+        specularRate 0.1
+        refractRate 0
+        refractIndex 1
+    }
+    Material 
+    { 
+        diffuseColor 1 0 0 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 0.5
+        specularRate 0
+        refractRate 0
+        refractIndex 1
+    }
+    Material 
+    { 
+        diffuseColor 0 0 1 
+        specularColor 1 1 1
+        shininess 20
+        diffuseRate 0.5
+        specularRate 0
+        refractRate 0
+        refractIndex 1
+    }
+    LightMaterial
+    {
+        lightColor 1 1 1
+    }
+}
+
+Group {
+    numObjects 7
+    MaterialIndex 1
+    Plane {
+	    normal 0 1 0
+        offset -2
+    }
+    Plane {
+	    normal 0 -1 0
+        offset -2
+    }
+    Plane {
+	    normal 0 0 1
+        offset -2
+    }
+    MaterialIndex 2
+    Plane {
+	    normal 1 0 0
+        offset -2
+    }
+    MaterialIndex 3
+    Plane {
+	    normal -1 0 0
+        offset -2
+    }
+    MaterialIndex 0
+    Sphere {
+        center 0.5 -1.5 1.5 
+        radius 0.5 
+    }
+    Transform {
+        Scale 0.3 0.3 0.3
+        ZRotate 15
+        Translate  5 0 0
+        RevSurface {
+            profile BsplineCurve {
+                controls
+                    [ 0.000000 -0.459543 0.0 ]
+                    [ 0.000000 -0.459544 0.0 ]
+                    [ 0.000000 -0.459545 0.0 ]
+                    [ -0.351882 -0.426747 0.0 ]
+                    [ -0.848656 -0.278898 0.0 ]
+                    [ -1.112097 0.084005 0.0 ]
+                    [ -1.164785 1.105511 0.0 ]
+                    [ -0.991667 2.328629 0.0 ]
+                    [ -1.029301 2.503360 0.0 ]
+                    [ -1.088800 2.345600 0.0 ]
+                    [ -1.278000 1.162800 0.0 ]
+                    [ -1.214800 0.055200 0.0 ]
+                    [ -0.915600 -0.381200 0.0 ]
+                    [ -0.380400 -0.622000 0.0 ]
+                    [ -0.144000 -0.968400 0.0 ]
+                    [ -0.096800 -1.480000 0.0 ]
+                    [ -0.128400 -2.112400 0.0 ]
+                    [ -0.317200 -2.202800 0.0 ]
+                    [ -0.994400 -2.262800 0.0 ]
+                    [ -1.214800 -2.323200 0.0 ]
+                    [ -1.199200 -2.398400 0.0 ]
+                    [ -1.057600 -2.458800 0.0 ]
+                    [ -0.711200 -2.458800 0.0 ]
+                    [ 0.000000 -2.458800 0.0 ]
+                    [ 0.000000 -2.458801 0.0 ]
+                    [ 0.000000 -2.458802 0.0 ]
+
+            }
+        }
+    }
+}
+
+Lights {
+    numLights 1
+    MaterialIndex 4
+    PointLight {
+        position 0 1 0
+        color 1 1 1
+        radius 0.3
+        power 3000
+        photonAmount 10000
+    }
+}
